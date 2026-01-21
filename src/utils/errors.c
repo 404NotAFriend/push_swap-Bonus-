@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:21:31 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/21 17:58:29 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/21 22:11:32 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	error_exit(t_stack *stack_a, t_stack *stack_b)
 		free_stack(stack_a);
 	if (stack_b)
 		free_stack(stack_b);
-	write(2, "Error\n", 6);
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
