@@ -6,9 +6,11 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:21:39 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/21 22:11:29 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/21 22:14:09 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../includes/push_swap.h"
 
 void	free_stack(t_stack *stack)
 {

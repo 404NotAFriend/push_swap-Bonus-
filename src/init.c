@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:14:35 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/21 21:54:23 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/21 22:13:57 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	add_bottom(t_stack *stack, t_node *new_node)
 	else
 	{
 		bottom = stack->top->prev;
-		new_node->pos = stack->top + 1;
 		bottom->next = new_node;
 		new_node->prev = bottom;
 		new_node->next = stack->top;
