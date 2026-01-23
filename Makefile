@@ -6,7 +6,7 @@
 #    By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/13 17:13:57 by bramalho@st       #+#    #+#              #
-#    Updated: 2026/01/23 19:26:08 by bramalho@st      ###   ########.fr        #
+#    Updated: 2026/01/23 21:46:41 by bramalho@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,7 @@ LIBS += -L$(PRINTF_DIR) -lftprintf
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(LIBFT) $(PRINTF) $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
 	@echo "$(GREEN)✅ push_swap compiled successfully!$(RESET)"
 
