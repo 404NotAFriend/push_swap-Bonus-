@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 17:21:39 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/21 23:49:24 by bramalho@st      ###   ########.fr       */
+/*   Created: 2026/01/22 00:04:27 by bramalho@st       #+#    #+#             */
+/*   Updated: 2026/01/22 00:04:32 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_stack *stack)
+long	ft_atol(const char *nptr)
 {
-	t_node	*current;
-	t_node	*temp;
-	int		count;
+	size_t	i;
+	long	nbr;
+	int		sign;
 
-	if (!stack || !stack->top)
-		return ;
-	current = stack->top;
-	count = stack->size;
-	while (count > 0)
+	i = 0;
+	nbr = 0;
+	sign = 1;
+	while ((nptr[i] == ' ') || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		temp = current->next;
-		free(current);
-		current = temp;
-		count--;
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
 	}
-	stack->top = NULL;
-	stack->size = 0;
+	while (ft_isdigit(nptr[i]))
+	{
+		nbr = nbr * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (nbr * sign);
 }

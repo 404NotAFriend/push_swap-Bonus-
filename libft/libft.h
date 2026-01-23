@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bramalho <bramalho@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 16:04:28 by bramalho@st       #+#    #+#             */
-/*   Updated: 2025/10/20 17:30:37 by bramalho         ###   ########.fr       */
+/*   Updated: 2026/01/22 00:05:45 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+long	ft_atol(const char *nptr);
 int		ft_atoi(const char *nptr);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

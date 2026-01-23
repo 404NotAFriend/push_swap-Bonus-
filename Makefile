@@ -6,7 +6,7 @@
 #    By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/13 17:13:57 by bramalho@st       #+#    #+#              #
-#    Updated: 2026/01/21 17:16:46 by bramalho@st      ###   ########.fr        #
+#    Updated: 2026/01/23 19:26:08 by bramalho@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ OBJ_DIR = obj
 INC_DIR = includes
 
 LIBFT_DIR = libft
-PRINTF_DIR = ft_printf  # Optional - if you want to use it
+PRINTF_DIR = ft_printf
 
 # **************************************************************************** #
 #                                  FILES                                       #
@@ -49,6 +49,7 @@ PRINTF_DIR = ft_printf  # Optional - if you want to use it
 SRCS = 	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/init.c \
 		$(SRC_DIR)/parsing.c \
+		$(SRC_DIR)/validation.c \
 		$(SRC_DIR)/stack_utils.c \
 		$(SRC_DIR)/operations/push.c \
 		$(SRC_DIR)/operations/swap.c \
@@ -57,7 +58,7 @@ SRCS = 	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/algorithm/sort_three.c \
 		$(SRC_DIR)/algorithm/sort_small.c \
 		$(SRC_DIR)/algorithm/sort_large.c \
-		$(SRC_DIR)/utils/error.c \
+		$(SRC_DIR)/utils/errors.c \
 		$(SRC_DIR)/utils/free.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
@@ -65,19 +66,19 @@ OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 # **************************************************************************** #
 #                                 LIBRARIES                                    #
 # **************************************************************************** #
-
+  # Uncomment if using ft_printf
 LIBFT = $(LIBFT_DIR)/libft.a
-# PRINTF = $(PRINTF_DIR)/libftprintf.a  # Uncomment if using ft_printf
+PRINTF = $(PRINTF_DIR)/libftprintf.a
 
 # **************************************************************************** #
 #                                  FLAGS                                       #
 # **************************************************************************** #
 
 INCLUDES = -I$(INC_DIR) -I$(LIBFT_DIR)
-# INCLUDES += -I$(PRINTF_DIR)  # Uncomment if using ft_printf
+INCLUDES += -I$(PRINTF_DIR)
 
 LIBS = -L$(LIBFT_DIR) -lft
-# LIBS += -L$(PRINTF_DIR) -lftprintf  # Uncomment if using ft_printf
+LIBS += -L$(PRINTF_DIR) -lftprintf
 
 # **************************************************************************** #
 #                                  RULES                                       #
@@ -92,8 +93,8 @@ $(NAME): $(LIBFT) $(OBJS)
 $(LIBFT):
 	@make -C $(LIBFT_DIR)
 
-# $(PRINTF):
-# 	@make -C $(PRINTF_DIR)
+$(PRINTF):
+	@make -C $(PRINTF_DIR)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)

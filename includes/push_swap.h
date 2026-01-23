@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:12:36 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/21 17:31:14 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/23 19:20:47 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,12 @@ void		init_stack(t_stack *stack);
 t_node		*create_node(int value);
 void		add_bottom(t_stack *stack, t_node *new_node);
 
+// Validation
+
+int			is_valid_number(char *str);
+int			is_overflow(char *str);
+int			add_number(char *str, t_stack *stack_a);
+
 // Stack Operations
 
 void		sa(t_stack *stack_a, int print);
@@ -67,11 +73,13 @@ void		rrb(t_stack *stack_b, int print);
 void		rrr(t_stack *stack_a, t_stack *stack_b, int print);
 
 // Sorting Algorithms
+
 void		sort_three(t_stack *stack_a);
 void		sort_small(t_stack *stack_a, t_stack *stack_b);
 void		sort_large(t_stack *stack_a, t_stack *stack_b);
 
 // Utils
+
 int			is_sorted(t_stack *stack);
 int			has_duplicates(t_stack *stack);
 void		free_stack(t_stack *stack);

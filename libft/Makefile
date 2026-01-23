@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bramalho <bramalho@student.42porto.com>    +#+  +:+       +#+         #
+#    By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 18:44:42 by bramalho          #+#    #+#              #
-#    Updated: 2025/10/20 19:41:55 by bramalho         ###   ########.fr        #
+#    Updated: 2026/01/22 00:06:04 by bramalho@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ AR = ar rcs
 RM = rm -rf
 
 SRCS = ft_atoi.c \
+		ft_atol.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		ft_isalnum.c \
@@ -53,7 +54,7 @@ SRCS = ft_atoi.c \
 		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
-		ft_toupper.c 
+		ft_toupper.c
 
 BONUS_SRCS = ft_lstadd_back.c \
              ft_lstadd_front.c \
@@ -85,6 +86,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all 
+re: fclean all
 
 .PHONY: all clean fclean re bonus

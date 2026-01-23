@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:14:58 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/21 23:46:45 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/21 23:49:51 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	is_sorted(t_stack *stack)
 		if (current->value > current->next->value)
 			return (0);
 		current = current->next;
-		count --;
+		count--;
 	}
 	return (1);
 }
