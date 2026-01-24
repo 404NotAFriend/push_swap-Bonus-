@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:12:36 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/23 19:20:47 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/24 06:32:25 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,14 @@ void		rrr(t_stack *stack_a, t_stack *stack_b, int print);
 void		sort_three(t_stack *stack_a);
 void		sort_small(t_stack *stack_a, t_stack *stack_b);
 void		sort_large(t_stack *stack_a, t_stack *stack_b);
+
+// Radix Sort
+
+void		radix_sort(t_stack *stack_a, t_stack *stack_b);
+
+// Indexing
+
+void		assign_index(t_stack *stack);
 
 // Utils
 

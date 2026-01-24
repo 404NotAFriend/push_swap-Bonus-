@@ -1,47 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   indexing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 17:17:46 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 04:17:26 by bramalho@st      ###   ########.fr       */
+/*   Created: 2026/01/24 04:18:39 by bramalho@st       #+#    #+#             */
+/*   Updated: 2026/01/24 04:19:24 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static int	find_max(t_stack *stack)
+static t_node	*find_min_unindexed(t_stack *stack)
 {
 	t_node	*current;
-	int		max;
+	t_node	*min_node;
 	int		count;
 
 	current = stack->top;
-	max = current->value;
+	min_node = NULL;
 	count = 0;
 	while (count < stack->size)
 	{
-		if (current->value > max)
-			max = current->value;
+		if (current->index == -1)
+		{
+			if (!min_node || current->value < min_node->value)
+				min_node = current;
+		}
 		current = current->next;
 		count++;
 	}
-	return (max);
+	return (min_node);
 }
 
-void	sort_three(t_stack *stack_a)
+void	assign_index(t_stack *stack)
 {
-	int	max;
+	t_node	*min_node;
+	int		index;
 
-	if (is_sorted(stack_a))
-		return ;
-	max = find_max(stack_a);
-	if (stack_a->top->value == max)
-		ra(stack_a, 1);
-	else if (stack_a->top->next->value == max)
-		rra(stack_a, 1);
-	if (stack_a->top->value > stack_a->top->next->value)
-		sa(stack_a, 1);
+	index = 0;
+	while (index < stack->size)
+	{
+		min_node = find_min_unindexed(stack);
+		if (min_node)
+			min_node->index = index;
+		index++;
+	}
 }

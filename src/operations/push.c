@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:19:07 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 03:58:29 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/24 06:18:50 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static t_node	*remove_top(t_stack *stack)
 
 static void	add_to_top(t_stack *stack, t_node *node)
 {
-	t_node *last;
+	t_node	*last;
+
 	if (!stack || !node)
 		return ;
 	if (stack->size == 0)

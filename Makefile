@@ -6,7 +6,7 @@
 #    By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/13 17:13:57 by bramalho@st       #+#    #+#              #
-#    Updated: 2026/01/23 21:46:41 by bramalho@st      ###   ########.fr        #
+#    Updated: 2026/01/24 06:31:57 by bramalho@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,8 @@ SRCS = 	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/algorithm/sort_three.c \
 		$(SRC_DIR)/algorithm/sort_small.c \
 		$(SRC_DIR)/algorithm/sort_large.c \
+		$(SRC_DIR)/algorithm/indexing.c \
+		$(SRC_DIR)/algorithm/radix.c \
 		$(SRC_DIR)/utils/errors.c \
 		$(SRC_DIR)/utils/free.c
 
