@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 06:25:39 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 06:31:25 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/24 06:40:45 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 	bit = 0;
 	while (bit < max_bits)
 	{
+		if (is_sorted(stack_a))  // ← Early exit!
+			return;
 		size = stack_a->size;
 		i = 0;
 		while (i < size)

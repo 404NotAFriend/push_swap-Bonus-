@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:12:36 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 06:32:25 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/24 06:52:30 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,15 @@ void		sort_three(t_stack *stack_a);
 void		sort_small(t_stack *stack_a, t_stack *stack_b);
 void		sort_large(t_stack *stack_a, t_stack *stack_b);
 
-// Radix Sort
+// Radix & Hybrid Sort
 
 void		radix_sort(t_stack *stack_a, t_stack *stack_b);
+void		assign_positions(t_stack *stack);
+int			find_target_pos(t_stack *stack_a, int b_index);
+void		calculate_cost(t_stack *stack_a, t_stack *stack_b);
+t_node		*find_cheapest(t_stack *stack_b);
+void		execute_move(t_stack *a, t_stack *b, int cost_a, int cost_b);
+void		push_to_b(t_stack *stack_a, t_stack *stack_b);
 
 // Indexing
 

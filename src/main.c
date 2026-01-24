@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:14:43 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 06:32:41 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/24 06:48:54 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,6 @@ static void	print_stack(t_stack *stack)
 	ft_printf("\n");
 }
 
-static void	print_with_index(t_stack *stack)
-{
-	t_node	*current;
-	int		count;
-
-	if (!stack || !stack->top)
-		return ;
-	current = stack->top;
-	count = 0;
-	ft_printf("Values and indices:\n");
-	while (count < stack->size)
-	{
-		ft_printf("  value=%d, index=%d\n", current->value, current->index);
-		current = current->next;
-		count++;
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
@@ -64,22 +46,23 @@ int	main(int argc, char **argv)
 	}
 	init_stack(&stack_b);
 
-	ft_printf("✅ Parsing successful!\n");
+	ft_printf("Before: ");
 	print_stack(&stack_a);
-	ft_printf("Sorted: %s\n\n", is_sorted(&stack_a) ? "YES" : "NO");
 
-	// Assign indices
 	assign_index(&stack_a);
 
-	// Sort based on size
-	if (stack_a.size == 2)
+	if (stack_a.size <= 1)
+		;
+	else if (stack_a.size == 2)
 		sa(&stack_a, 1);
 	else if (stack_a.size == 3)
 		sort_three(&stack_a);
+	else if (stack_a.size <= 5)
+		sort_small(&stack_a, &stack_b);
 	else
 		radix_sort(&stack_a, &stack_b);
 
-	ft_printf("\n--- After Sorting ---\n");
+	ft_printf("After:  ");
 	print_stack(&stack_a);
 	ft_printf("Sorted: %s\n", is_sorted(&stack_a) ? "YES" : "NO");
 
