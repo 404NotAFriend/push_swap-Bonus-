@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:19:07 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 03:45:23 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/24 03:58:29 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static t_node	*remove_top(t_stack *stack)
 		return (NULL);
 	node = stack->top;
 	if (stack->size == 1)
-		stack->top == NULL;
+		stack->top = NULL;
 	else
 	{
 		last = stack->top->prev;
