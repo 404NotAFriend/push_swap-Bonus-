@@ -36,18 +36,3 @@ void	sa(t_stack *stack_a, int print)
 	if (print)
 		ft_printf("sa\n");
 }
-
-void	sb(t_stack *stack_b, int print)
-{
-	swap(stack_b);
-	if (print)
-		ft_printf("sb\n");
-}
-
-void	ss(t_stack *stack_a, t_stack *stack_b, int print)
-{
-	swap(stack_a);
-	swap(stack_b);
-	if (print)
-		ft_printf("ss\n");
-}

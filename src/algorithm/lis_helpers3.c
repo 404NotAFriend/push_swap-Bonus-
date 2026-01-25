@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_to_b.c                                        :+:      :+:    :+:   */
+/*   lis_helpers3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 06:50:29 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 06:59:18 by bramalho@st      ###   ########.fr       */
+/*   Created: 2026/01/24 22:55:00 by bramalho@st       #+#    #+#             */
+/*   Updated: 2026/01/24 23:51:20 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	push_to_b(t_stack *stack_a, t_stack *stack_b)
+void	find_max_lis_position(int *lengths, int size, int *max_len,
+	int *max_idx)
 {
-	int	size;
-	int	pushed;
+	int	i;
 
-	size = stack_a->size;
-	pushed = 0;
-	while (pushed < size - 3)
+	*max_len = 0;
+	*max_idx = 0;
+	i = 0;
+	while (i < size)
 	{
-		pb(stack_a, stack_b, 1);
-		pushed++;
-		if (stack_b->size == 2)
+		if (lengths[i] > *max_len)
 		{
-			if (stack_b->top->index < stack_b->top->next->index)
-				sb(stack_b, 1);
+			*max_len = lengths[i];
+			*max_idx = i;
 		}
+		i++;
 	}
 }

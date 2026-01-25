@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:21:39 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/21 23:49:24 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/24 07:25:22 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,23 @@
 void	free_stack(t_stack *stack)
 {
 	t_node	*current;
-	t_node	*temp;
+	t_node	*next;
+	t_node	*original_top;
 	int		count;
 
-	if (!stack || !stack->top)
+	if (!stack || !stack->top || stack->size == 0)
 		return ;
+	original_top = stack->top;
 	current = stack->top;
-	count = stack->size;
-	while (count > 0)
+	count = 0;
+	while (current && count < stack->size)
 	{
-		temp = current->next;
+		next = current->next;
 		free(current);
-		current = temp;
-		count--;
+		count++;
+		if (next == original_top)
+			break ;
+		current = next;
 	}
 	stack->top = NULL;
 	stack->size = 0;

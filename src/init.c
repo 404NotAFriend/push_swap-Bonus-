@@ -25,6 +25,7 @@ t_node	*create_node(int value)
 	new_node->target_pos = 0;
 	new_node->cost_a = 0;
 	new_node->cost_b = 0;
+	new_node->keep_in_a = 0;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	return (new_node);

@@ -31,7 +31,7 @@ int	is_sorted(t_stack *stack)
 	t_node	*current;
 	int		count;
 
-	if (!stack || !stack ->top)
+	if (!stack || !stack->top)
 		return (1);
 	current = stack->top;
 	count = stack->size - 1;

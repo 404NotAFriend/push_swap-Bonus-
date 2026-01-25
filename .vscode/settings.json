@@ -1,0 +1,11 @@
+{
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/includes",
+        "${workspaceFolder}/libft",
+        "${workspaceFolder}/ft_printf",
+        "${workspaceFolder}/**"
+    ],
+    "C_Cpp.default.cStandard": "c99",
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.intelliSenseEngine": "default"
+}

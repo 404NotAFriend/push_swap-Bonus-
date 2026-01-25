@@ -21,7 +21,9 @@ static t_node	*remove_top(t_stack *stack)
 		return (NULL);
 	node = stack->top;
 	if (stack->size == 1)
+	{
 		stack->top = NULL;
+	}
 	else
 	{
 		last = stack->top->prev;

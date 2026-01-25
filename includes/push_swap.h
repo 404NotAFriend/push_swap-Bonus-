@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:12:36 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 06:52:30 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/24 23:50:26 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_node
 	int				target_pos;
 	int				cost_a;
 	int				cost_b;
+	int				keep_in_a;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
@@ -61,8 +62,6 @@ int			add_number(char *str, t_stack *stack_a);
 // Stack Operations
 
 void		sa(t_stack *stack_a, int print);
-void		sb(t_stack *stack_b, int print);
-void		ss(t_stack *stack_a, t_stack *stack_b, int print);
 void		pa(t_stack *stack_a, t_stack *stack_b, int print);
 void		pb(t_stack *stack_a, t_stack *stack_b, int print);
 void		ra(t_stack *stack_a, int print);
@@ -75,18 +74,32 @@ void		rrr(t_stack *stack_a, t_stack *stack_b, int print);
 // Sorting Algorithms
 
 void		sort_three(t_stack *stack_a);
-void		sort_small(t_stack *stack_a, t_stack *stack_b);
-void		sort_large(t_stack *stack_a, t_stack *stack_b);
 
-// Radix & Hybrid Sort
+// Helper functions for LIS and position management
 
-void		radix_sort(t_stack *stack_a, t_stack *stack_b);
 void		assign_positions(t_stack *stack);
 int			find_target_pos(t_stack *stack_a, int b_index);
-void		calculate_cost(t_stack *stack_a, t_stack *stack_b);
-t_node		*find_cheapest(t_stack *stack_b);
-void		execute_move(t_stack *a, t_stack *b, int cost_a, int cost_b);
-void		push_to_b(t_stack *stack_a, t_stack *stack_b);
+
+// LIS (Longest Increasing Subsequence) Algorithm
+void		lis_sort(t_stack *stack_a, t_stack *stack_b);
+void		mark_lis_elements(t_stack *stack_a);
+void		push_back_optimized(t_stack *stack_a, t_stack *stack_b);
+
+// LIS Helper Functions
+void		fill_indices_array(t_stack *stack_a, int *indices,
+				int *lengths, int *prev);
+void		compute_lis_dp(int *indices, int *lengths,
+				int *prev, int size);
+void		push_non_lis_to_b(t_stack *stack_a, t_stack *stack_b);
+void		rotate_to_min(t_stack *stack_a);
+int			*reconstruct_lis(int *lengths, int *prev,
+				int size, int *lis_len);
+void		mark_single_element(t_stack *stack_a, int target_pos);
+void		find_max_lis_position(int *lengths, int size, int *max_len,
+				int *max_idx);
+
+// Optimized Small Sorts
+void		sort_small(t_stack *stack_a, t_stack *stack_b);
 
 // Indexing
 
