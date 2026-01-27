@@ -6,7 +6,7 @@
 #    By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/13 17:13:57 by bramalho@st       #+#    #+#              #
-#    Updated: 2026/01/25 06:19:46 by bramalho@st      ###   ########.fr        #
+#    Updated: 2026/01/27 04:07:05 by bramalho@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,19 +56,15 @@ SRCS = 	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/operations/rotate.c \
 		$(SRC_DIR)/operations/reverse_rotate.c \
 		$(SRC_DIR)/algorithm/sort_three.c \
+		$(SRC_DIR)/algorithm/sort_small.c \
 		$(SRC_DIR)/algorithm/indexing.c \
 		$(SRC_DIR)/algorithm/position.c \
 		$(SRC_DIR)/algorithm/lis_sort.c \
 		$(SRC_DIR)/algorithm/lis_helpers.c \
 		$(SRC_DIR)/algorithm/lis_helpers2.c \
 		$(SRC_DIR)/algorithm/lis_helpers3.c \
-		$(SRC_DIR)/algorithm/sort_small.c \
 		$(SRC_DIR)/algorithm/cost.c \
 		$(SRC_DIR)/algorithm/execute.c \
-		$(SRC_DIR)/algorithm/sort_large.c \
-		$(SRC_DIR)/algorithm/push_to_b.c \
-		$(SRC_DIR)/algorithm/simple_cost.c \
-		$(SRC_DIR)/algorithm/simple_execute.c \
 		$(SRC_DIR)/utils/errors.c \
 		$(SRC_DIR)/utils/free.c
 

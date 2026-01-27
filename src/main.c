@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:14:43 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 07:18:56 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/27 04:04:48 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static void	execute_sorting_algorithm(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size <= 1)
-		;
-	else if (stack_a->size == 2)
+		return ;
+	if (stack_a->size == 2)
 	{
 		if (stack_a->top->index > stack_a->top->next->index)
 			sa(stack_a, 1);
@@ -25,10 +25,8 @@ static void	execute_sorting_algorithm(t_stack *stack_a, t_stack *stack_b)
 		sort_three(stack_a);
 	else if (stack_a->size <= 5)
 		sort_small(stack_a, stack_b);
-	else if (stack_a->size <= 400)
-		lis_sort(stack_a, stack_b);
 	else
-		sort_large(stack_a, stack_b);
+		lis_sort(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)

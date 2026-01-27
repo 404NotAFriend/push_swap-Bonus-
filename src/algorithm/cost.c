@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 08:42:45 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/27 03:55:22 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/27 04:04:21 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,45 @@ static int	calc_combined_cost(int cost_a, int cost_b)
 {
 	if (cost_a > 0 && cost_b > 0)
 	{
-		if (cost_a > cost_b) return (cost_a);
+		if (cost_a > cost_b)
+			return (cost_a);
 		return (cost_b);
 	}
 	if (cost_a < 0 && cost_b < 0)
 	{
-		if (-cost_a > -cost_b) return (-cost_a);
+		if (-cost_a > -cost_b)
+			return (-cost_a);
 		return (-cost_b);
 	}
-	if (cost_a < 0) cost_a = -cost_a;
-	if (cost_b < 0) cost_b = -cost_b;
+	if (cost_a < 0)
+		cost_a = -cost_a;
+	if (cost_b < 0)
+		cost_b = -cost_b;
 	return (cost_a + cost_b);
+}
+
+void	calculate_cost(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*curr_b;
+	int		target_pos;
+
+	assign_positions(stack_a);
+	assign_positions(stack_b);
+	curr_b = stack_b->top;
+	while (curr_b)
+	{
+		// Use find_target_pos (matches your position.c)
+		target_pos = find_target_pos(stack_a, curr_b->index);
+		curr_b->cost_b = curr_b->pos;
+		if (curr_b->pos > stack_b->size / 2)
+			curr_b->cost_b = (stack_b->size - curr_b->pos) * -1;
+		curr_b->cost_a = target_pos;
+		if (target_pos > stack_a->size / 2)
+			curr_b->cost_a = (stack_a->size - target_pos) * -1;
+		curr_b = curr_b->next;
+		if (curr_b == stack_b->top)
+			break ;
+	}
 }
 
 t_node	*find_cheapest(t_stack *stack_b)

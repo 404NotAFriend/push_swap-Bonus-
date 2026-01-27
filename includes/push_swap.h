@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:12:36 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 23:50:26 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/27 04:08:45 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,12 @@ void		sort_small(t_stack *stack_a, t_stack *stack_b);
 void		sort_large(t_stack *stack_a, t_stack *stack_b);
 
 // Cost-based optimization
+
 void		calculate_cost(t_stack *stack_a, t_stack *stack_b);
 t_node		*find_cheapest(t_stack *stack_b);
-void		execute_move(t_stack *stack_a, t_stack *stack_b, int cost_a, int cost_b);
+void    execute_move(t_stack *stack_a, t_stack *stack_b, t_node *cheap);
 void		push_to_b(t_stack *stack_a, t_stack *stack_b);
 
-// Simple cost optimization for large datasets
-void		simple_calculate_cost(t_stack *stack_a, t_stack *stack_b);
-t_node		*simple_find_cheapest(t_stack *stack_b);
-void		simple_execute_move(t_stack *stack_a, t_stack *stack_b, t_node *cheapest);
 
 // Helper functions for LIS and position management
 
@@ -95,11 +92,13 @@ void		assign_positions(t_stack *stack);
 int			find_target_pos(t_stack *stack_a, int b_index);
 
 // LIS (Longest Increasing Subsequence) Algorithm
+
 void		lis_sort(t_stack *stack_a, t_stack *stack_b);
 void		mark_lis_elements(t_stack *stack_a);
 void		push_back_optimized(t_stack *stack_a, t_stack *stack_b);
 
 // LIS Helper Functions
+
 void		fill_indices_array(t_stack *stack_a, int *indices,
 				int *lengths, int *prev);
 void		compute_lis_dp(int *indices, int *lengths,
@@ -113,6 +112,7 @@ void		find_max_lis_position(int *lengths, int size, int *max_len,
 				int *max_idx);
 
 // Optimized Small Sorts
+
 void		sort_small(t_stack *stack_a, t_stack *stack_b);
 
 // Indexing
