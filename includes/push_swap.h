@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:12:36 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/27 04:08:45 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/27 04:24:07 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,8 @@ void		sort_large(t_stack *stack_a, t_stack *stack_b);
 
 void		calculate_cost(t_stack *stack_a, t_stack *stack_b);
 t_node		*find_cheapest(t_stack *stack_b);
-void    execute_move(t_stack *stack_a, t_stack *stack_b, t_node *cheap);
+void		execute_move(t_stack *stack_a, t_stack *stack_b, t_node *cheap);
 void		push_to_b(t_stack *stack_a, t_stack *stack_b);
-
 
 // Helper functions for LIS and position management
 

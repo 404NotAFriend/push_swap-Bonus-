@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 08:42:45 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/27 04:04:21 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/27 04:24:29 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	calculate_cost(t_stack *stack_a, t_stack *stack_b)
 	curr_b = stack_b->top;
 	while (curr_b)
 	{
-		// Use find_target_pos (matches your position.c)
 		target_pos = find_target_pos(stack_a, curr_b->index);
 		curr_b->cost_b = curr_b->pos;
 		if (curr_b->pos > stack_b->size / 2)
