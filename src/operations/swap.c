@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:19:29 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/23 22:17:48 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/27 03:37:16 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,18 @@ static void	swap(t_stack *stack)
 		return ;
 	first = stack->top;
 	second = first->next;
+	if (stack->size == 2)
+	{
+		stack->top = second;
+		return ;
+	}
 	stack->top = second;
-	first->prev->next = second;
-	second->next->prev = first;
 	first->next = second->next;
 	second->prev = first->prev;
-	first->prev = second;
+	first->prev->next = second;
+	second->next->prev = first;
 	second->next = first;
+	first->prev = second;
 }
 
 void	sa(t_stack *stack_a, int print)

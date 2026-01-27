@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 20:50:07 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/25 00:08:45 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/27 03:44:34 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,24 +56,17 @@ void	compute_lis_dp(int *indices, int *lengths, int *prev,
 void	push_non_lis_to_b(t_stack *stack_a, t_stack *stack_b)
 {
 	int	size;
-	int	rotations;
+	int	i;
 
 	size = stack_a->size;
-	rotations = 0;
-	while (rotations < size)
+	i = 0;
+	while (i < size)
 	{
 		if (stack_a->top->keep_in_a == 0)
-		{
 			pb(stack_a, stack_b, 1);
-			rotations = 0;
-		}
 		else
-		{
 			ra(stack_a, 1);
-			rotations++;
-		}
-		if (rotations >= size)
-			break ;
+		i++;
 	}
 }
 
