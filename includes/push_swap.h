@@ -62,6 +62,7 @@ int			add_number(char *str, t_stack *stack_a);
 // Stack Operations
 
 void		sa(t_stack *stack_a, int print);
+void		sb(t_stack *stack_b, int print);
 void		pa(t_stack *stack_a, t_stack *stack_b, int print);
 void		pb(t_stack *stack_a, t_stack *stack_b, int print);
 void		ra(t_stack *stack_a, int print);
@@ -74,6 +75,19 @@ void		rrr(t_stack *stack_a, t_stack *stack_b, int print);
 // Sorting Algorithms
 
 void		sort_three(t_stack *stack_a);
+void		sort_small(t_stack *stack_a, t_stack *stack_b);
+void		sort_large(t_stack *stack_a, t_stack *stack_b);
+
+// Cost-based optimization
+void		calculate_cost(t_stack *stack_a, t_stack *stack_b);
+t_node		*find_cheapest(t_stack *stack_b);
+void		execute_move(t_stack *stack_a, t_stack *stack_b, int cost_a, int cost_b);
+void		push_to_b(t_stack *stack_a, t_stack *stack_b);
+
+// Simple cost optimization for large datasets
+void		simple_calculate_cost(t_stack *stack_a, t_stack *stack_b);
+t_node		*simple_find_cheapest(t_stack *stack_b);
+void		simple_execute_move(t_stack *stack_a, t_stack *stack_b, t_node *cheapest);
 
 // Helper functions for LIS and position management
 

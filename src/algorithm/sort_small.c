@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_small.c                                      :+:      :+:    :+:   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 07:35:15 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 16:06:54 by bramalho@st      ###   ########.fr       */
+/*   Created: 2025/12/13 17:17:34 by bramalho@st       #+#    #+#             */
+/*   Updated: 2026/01/24 06:48:34 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,67 +16,67 @@ static int	find_min_index(t_stack *stack)
 {
 	t_node	*current;
 	int		min_index;
-	int		min_pos;
-	int		pos;
+	int		count;
 
 	current = stack->top;
 	min_index = current->index;
-	min_pos = 0;
-	pos = 0;
-	while (pos < stack->size)
+	count = 0;
+	while (count < stack->size)
 	{
 		if (current->index < min_index)
-		{
 			min_index = current->index;
-			min_pos = pos;
-		}
 		current = current->next;
+		count++;
+	}
+	return (min_index);
+}
+
+static void	push_min_to_b(t_stack *stack_a, t_stack *stack_b)
+{
+	int		min_index;
+	t_node	*current;
+	int		pos;
+	int		count;
+
+	min_index = find_min_index(stack_a);
+	current = stack_a->top;
+	pos = 0;
+	count = 0;
+	while (count < stack_a->size)
+	{
+		if (current->index == min_index)
+			break ;
 		pos++;
+		current = current->next;
+		count++;
 	}
-	return (min_pos);
-}
-
-static void	move_min_to_top(t_stack *stack)
-{
-	int	min_pos;
-
-	min_pos = find_min_index(stack);
-	if (min_pos <= stack->size / 2)
-	{
-		while (min_pos-- > 0)
-			ra(stack, 1);
-	}
+	if (pos <= stack_a->size / 2)
+		while (stack_a->top->index != min_index)
+			ra(stack_a, 1);
 	else
-	{
-		min_pos = stack->size - min_pos;
-		while (min_pos-- > 0)
-			rra(stack, 1);
-	}
-}
-
-static void	sort_four_optimized(t_stack *stack_a, t_stack *stack_b)
-{
-	move_min_to_top(stack_a);
+		while (stack_a->top->index != min_index)
+			rra(stack_a, 1);
 	pb(stack_a, stack_b, 1);
-	sort_three(stack_a);
-	pa(stack_a, stack_b, 1);
-}
-
-static void	sort_five_optimized(t_stack *stack_a, t_stack *stack_b)
-{
-	move_min_to_top(stack_a);
-	pb(stack_a, stack_b, 1);
-	move_min_to_top(stack_a);
-	pb(stack_a, stack_b, 1);
-	sort_three(stack_a);
-	pa(stack_a, stack_b, 1);
-	pa(stack_a, stack_b, 1);
 }
 
 void	sort_small(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->size == 4)
-		sort_four_optimized(stack_a, stack_b);
+	if (stack_a->size == 2)
+		sa(stack_a, 1);
+	else if (stack_a->size == 3)
+		sort_three(stack_a);
+	else if (stack_a->size == 4)
+	{
+		push_min_to_b(stack_a, stack_b);
+		sort_three(stack_a);
+		pa(stack_a, stack_b, 1);
+	}
 	else if (stack_a->size == 5)
-		sort_five_optimized(stack_a, stack_b);
+	{
+		push_min_to_b(stack_a, stack_b);
+		push_min_to_b(stack_a, stack_b);
+		sort_three(stack_a);
+		pa(stack_a, stack_b, 1);
+		pa(stack_a, stack_b, 1);
+	}
 }

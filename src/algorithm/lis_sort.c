@@ -51,38 +51,16 @@ void	mark_lis_elements(t_stack *stack_a)
 	free(positions);
 }
 
-static void	rotate_to_target(t_stack *stack_a, int target_pos)
-{
-	int	pos;
-
-	pos = 0;
-	if (target_pos <= stack_a->size / 2)
-	{
-		while (pos < target_pos)
-		{
-			ra(stack_a, 1);
-			pos++;
-		}
-	}
-	else
-	{
-		while (pos < (stack_a->size - target_pos))
-		{
-			rra(stack_a, 1);
-			pos++;
-		}
-	}
-}
 
 void	push_back_optimized(t_stack *stack_a, t_stack *stack_b)
 {
-	int	target_pos;
+	t_node	*cheapest;
 
 	while (stack_b->size > 0)
 	{
-		target_pos = find_target_pos(stack_a, stack_b->top->index);
-		rotate_to_target(stack_a, target_pos);
-		pa(stack_a, stack_b, 1);
+		calculate_cost(stack_a, stack_b);
+		cheapest = find_cheapest(stack_b);
+		execute_move(stack_a, stack_b, cheapest->cost_a, cheapest->cost_b);
 	}
 	rotate_to_min(stack_a);
 }

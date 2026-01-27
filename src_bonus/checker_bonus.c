@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 17:14:43 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 07:18:56 by bramalho@st      ###   ########.fr       */
+/*   Created: 2026/01/25 11:30:00 by bramalho@st       #+#    #+#             */
+/*   Updated: 2026/01/25 18:45:00 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/checker_bonus.h"
 
-static void	execute_sorting_algorithm(t_stack *stack_a, t_stack *stack_b)
+static int	check_result(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->size <= 1)
-		;
-	else if (stack_a->size == 2)
+	if (stack_b->size == 0 && is_sorted(stack_a))
 	{
-		if (stack_a->top->index > stack_a->top->next->index)
-			sa(stack_a, 1);
+		ft_printf("OK\n");
+		return (1);
 	}
-	else if (stack_a->size == 3)
-		sort_three(stack_a);
-	else if (stack_a->size <= 5)
-		sort_small(stack_a, stack_b);
-	else if (stack_a->size <= 400)
-		lis_sort(stack_a, stack_b);
 	else
-		sort_large(stack_a, stack_b);
+	{
+		ft_printf("KO\n");
+		return (0);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -36,15 +31,20 @@ int	main(int argc, char **argv)
 	t_stack	stack_a;
 	t_stack	stack_b;
 
+	if (argc < 2)
+		return (0);
 	if (!parse_arguments(argc, argv, &stack_a))
 	{
 		error_exit(&stack_a, NULL);
 		return (1);
 	}
 	init_stack(&stack_b);
-	assign_index(&stack_a);
-	if (!is_sorted(&stack_a))
-		execute_sorting_algorithm(&stack_a, &stack_b);
+	if (!read_and_execute(&stack_a, &stack_b))
+	{
+		error_exit(&stack_a, &stack_b);
+		return (1);
+	}
+	check_result(&stack_a, &stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

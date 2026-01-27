@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 07:23:31 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/24 16:06:47 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/24 06:44:08 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	find_min_pos(t_stack *stack)
 		if (current->index < min_index)
 		{
 			min_index = current->index;
-			min_pos = current->pos;
+			min_pos = count;
 		}
 		current = current->next;
 		count++;
@@ -67,7 +67,7 @@ int	find_target_pos(t_stack *stack_a, int b_index)
 		if (current->index > b_index && current->index < target_index)
 		{
 			target_index = current->index;
-			target_pos = current->pos;
+			target_pos = count;
 		}
 		current = current->next;
 		count++;
