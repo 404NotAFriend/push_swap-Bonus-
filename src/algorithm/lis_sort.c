@@ -6,11 +6,9 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 07:32:15 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/27 04:30:42 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/27 04:48:15 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../../includes/push_swap.h"
 
 #include "../../includes/push_swap.h"
 
@@ -49,8 +47,9 @@ void	rotate_to_min(t_stack *stack_a)
 	int		min_val;
 	int		min_pos;
 
-	min_val = 2147483647;
 	min_node = stack_a->top;
+	min_val = min_node->index;
+	min_pos = min_node->pos;
 	assign_positions(stack_a);
 	while (1)
 	{

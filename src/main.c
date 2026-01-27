@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 17:14:43 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/27 04:04:48 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/27 04:47:39 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
+
+	if (argc == 2 && !argv[1][0])
+		return (0);
 
 	if (!parse_arguments(argc, argv, &stack_a))
 	{
