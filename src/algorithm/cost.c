@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 08:42:45 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/27 03:38:23 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/27 03:55:22 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,16 @@ static int	calc_combined_cost(int cost_a, int cost_b)
 {
 	if (cost_a > 0 && cost_b > 0)
 	{
-		if (cost_a > cost_b)
-			return (cost_a);
+		if (cost_a > cost_b) return (cost_a);
 		return (cost_b);
 	}
 	if (cost_a < 0 && cost_b < 0)
 	{
-		if (-cost_a > -cost_b)
-			return (-cost_a);
+		if (-cost_a > -cost_b) return (-cost_a);
 		return (-cost_b);
 	}
-	if (cost_a < 0)
-		cost_a = -cost_a;
-	if (cost_b < 0)
-		cost_b = -cost_b;
+	if (cost_a < 0) cost_a = -cost_a;
+	if (cost_b < 0) cost_b = -cost_b;
 	return (cost_a + cost_b);
 }
 
