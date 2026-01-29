@@ -1,4 +1,4 @@
-<div align="center">
+ <div align="center">
 
 <!-- Animated Header -->
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Chart%20Increasing.png" width="80"/>
@@ -213,7 +213,7 @@ pa
 
 ---
 
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Brain.png" width="25"/> Algorithm Strategy
+## Algorithm Strategy
 
 ### 🎯 Tiered Approach
 
@@ -471,7 +471,7 @@ timeout 10s bash -c "./push_swap $ARG | ./checker $ARG"
 
 ---
 
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Artist%20Palette.png" width="25"/> Implementation Highlights
+## Implementation Highlights
 
 ### 🎨 Smart Optimizations
 
@@ -577,24 +577,10 @@ Step 4: Final rotations to achieve 1 2 3 4 5
 **AI tools were used for the following specific tasks:**
 
 #### 1. **Algorithm Research and Optimization**
-- **Tool**: Claude/ChatGPT for algorithmic strategy research
+- **Tool**: Claude/ChatGPT/Gemini for algorithmic strategy research
 - **Usage**: Researching LIS algorithms and optimization techniques
-- **Verification**: All algorithms implemented from scratch and thoroughly tested
-- **Outcome**: Better understanding of DP approaches and cost optimization
 
 #### 2. **Code Review and Debugging**
-- **Tool**: GitHub Copilot for code suggestions during development
-- **Usage**: Assisted with function structure and edge case identification
-- **Verification**: All code manually reviewed and validated against requirements
-- **Outcome**: Faster development cycle with maintained code quality
-
-#### 3. **Documentation and Testing**
-- **Tool**: AI assistance for comprehensive test case generation
-- **Usage**: Generated edge cases and stress test scenarios
-- **Verification**: All tests manually verified and results analyzed
-- **Outcome**: More thorough testing coverage
-
-**Important**: All AI-generated content was thoroughly reviewed, understood, and validated before inclusion. The core algorithmic logic and implementation were developed independently.
 
 ### 🔗 Additional Resources
 - [42 School Push_swap Subject](https://cdn.intra.42.fr/pdf/pdf/123456/en.subject.pdf)
