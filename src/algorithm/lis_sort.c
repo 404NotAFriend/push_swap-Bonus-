@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 07:32:15 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/27 04:48:15 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/29 05:12:16 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void	identify_lis_and_mark(t_stack *stack_a)
 	int	*prev;
 	int	*lis_val;
 	int	lis_len;
-	int	i;
 
 	indices = malloc(sizeof(int) * stack_a->size);
 	lengths = malloc(sizeof(int) * stack_a->size);
@@ -29,11 +28,10 @@ static void	identify_lis_and_mark(t_stack *stack_a)
 	fill_indices_array(stack_a, indices, lengths, prev);
 	compute_lis_dp(indices, lengths, prev, stack_a->size);
 	lis_val = reconstruct_lis(lengths, prev, stack_a->size, &lis_len);
-	i = 0;
-	while (i < lis_len)
+	while (lis_len > 0)
 	{
-		mark_single_element(stack_a, lis_val[i]);
-		i++;
+		lis_len--;
+		mark_single_element(stack_a, lis_val[lis_len]);
 	}
 	free(indices);
 	free(lengths);
